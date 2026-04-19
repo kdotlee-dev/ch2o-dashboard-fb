@@ -1,4 +1,4 @@
-# CH2O Monitor — Formaldehyde Dashboard
+# Formaldehyde Dashboard
 
 A real-time web dashboard for an ESP32-based formaldehyde (CH₂O / HCHO) air quality sensor. Readings stream from the device into Firebase Realtime Database and render here as live charts, historical trends, and a safety breakdown classified against WHO and OSHA guidelines.
 
