@@ -1,0 +1,31 @@
+{
+  "rules": {
+    "devices": {
+      "device01": {
+        "history": {
+          "$row": {
+            ".read": true,
+            ".write": true,
+            "ch2o_ppm": {
+              ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10"
+            },
+            "level": {
+              ".validate": "newData.isString() && (newData.val() === 'safe' || newData.val() === 'warning' || newData.val() === 'danger')"
+            },
+            "wifi": {
+              ".validate": "newData.isString() && (newData.val() === 'online' || newData.val() === 'offline')"
+            },
+            "uptime_ms": {
+              ".validate": "newData.isNumber() && newData.val() >= 0"
+            },
+            "timestamp_unix_s": {
+              ".validate": "newData.isNumber() && newData.val() >= 1700000000"
+            }
+          }
+        }
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}
