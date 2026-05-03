@@ -1,5 +1,5 @@
 import { ArrowDown } from 'lucide-react';
-import enchantedTreeBg from '../assets/enchantedtree.png';
+import deviceBg from '../assets/device.png';
 import { Link } from 'react-router-dom';
 
 export const Onboarding = () => {
@@ -7,7 +7,7 @@ export const Onboarding = () => {
         <section
             id='onboarding'
             className='relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden bg-cover bg-center bg-no-repeat'
-            style={{ backgroundImage: `url(${enchantedTreeBg})` }}
+            style={{ backgroundImage: `url(${deviceBg})` }}
         >
             <div className='absolute inset-0 bg-linear-to-b from-black/70 via-black/40 to-black/80 z-0' />
 
