@@ -45,50 +45,50 @@ export const ReadingsTable = ({
     readings = [],
     status = 'ready',
     error = null,
-    clearAll,
-    deleteReading,
+    // clearAll,
+    // deleteReading,
     loadMore,
     loadingMore = false,
     hasMore = false,
 }) => {
-    const [mutating, setMutating] = useState(false);
-    const [mutationError, setMutationError] = useState(null);
+    // const [mutating, setMutating] = useState(false);
+    // const [mutationError, setMutationError] = useState(null);
 
-    const handleClearAll = async () => {
-        if (mutating) return;
-        const confirmed = window.confirm(
-            `Delete all ${readings.length} readings from Firebase? This cannot be undone.`
-        );
-        if (!confirmed) return;
+    // const handleClearAll = async () => {
+    //     if (mutating) return;
+    //     const confirmed = window.confirm(
+    //         `Delete all ${readings.length} readings from Firebase? This cannot be undone.`
+    //     );
+    //     if (!confirmed) return;
 
-        setMutating(true);
-        setMutationError(null);
-        try {
-            await clearAll();
-        } catch (err) {
-            setMutationError(err);
-        } finally {
-            setMutating(false);
-        }
-    };
+    //     setMutating(true);
+    //     setMutationError(null);
+    //     try {
+    //         await clearAll();
+    //     } catch (err) {
+    //         setMutationError(err);
+    //     } finally {
+    //         setMutating(false);
+    //     }
+    // };
 
-    const handleDeleteRow = async (reading) => {
-        if (mutating) return;
-        const confirmed = window.confirm(
-            `Delete the reading "${reading.id}"? This cannot be undone.`
-        );
-        if (!confirmed) return;
+    // const handleDeleteRow = async (reading) => {
+    //     if (mutating) return;
+    //     const confirmed = window.confirm(
+    //         `Delete the reading "${reading.id}"? This cannot be undone.`
+    //     );
+    //     if (!confirmed) return;
 
-        setMutating(true);
-        setMutationError(null);
-        try {
-            await deleteReading(reading.id);
-        } catch (err) {
-            setMutationError(err);
-        } finally {
-            setMutating(false);
-        }
-    };
+    //     setMutating(true);
+    //     setMutationError(null);
+    //     try {
+    //         await deleteReading(reading.id);
+    //     } catch (err) {
+    //         setMutationError(err);
+    //     } finally {
+    //         setMutating(false);
+    //     }
+    // };
 
     const hasReadings = status === 'ready' && readings.length > 0;
 
@@ -106,7 +106,7 @@ export const ReadingsTable = ({
                         {status === 'ready' &&
                             `${readings.length} entries${hasMore ? '+' : ''}`}
                     </span>
-                    <button
+                    {/*<button
                         type='button'
                         onClick={handleClearAll}
                         disabled={!hasReadings || mutating}
@@ -123,11 +123,11 @@ export const ReadingsTable = ({
                             <Trash2 className='h-3.5 w-3.5' />
                         )}
                         Clear all
-                    </button>
+                    </button>*/}
                 </div>
             </div>
 
-            {mutationError && (
+            {/* {mutationError && (
                 <div className='mb-3 px-3 py-2 rounded-md border border-red-500/30 bg-red-500/10 text-red-500 text-xs flex items-center gap-2'>
                     <AlertCircle className='h-4 w-4 shrink-0' />
                     <span>
@@ -135,7 +135,7 @@ export const ReadingsTable = ({
                         {mutationError.message ? `: ${mutationError.message}` : ''}
                     </span>
                 </div>
-            )}
+            )} */}
 
             <div className='rounded-xl border border-border bg-card overflow-hidden shadow-sm'>
                 <div className='max-h-[60vh] overflow-auto'>
@@ -145,15 +145,16 @@ export const ReadingsTable = ({
                                 <th className='px-4 py-3 font-semibold'>Date &amp; time</th>
                                 <th className='px-4 py-3 font-semibold'>CH₂O level</th>
                                 <th className='px-4 py-3 font-semibold'>Safety level</th>
-                                <th className='px-4 py-3 font-semibold text-right'>
+                                {/* <th className='px-4 py-3 font-semibold text-right'>
                                     <span className='sr-only'>Actions</span>
-                                </th>
+                                </th> */}
                             </tr>
                         </thead>
                         <tbody>
                             {status === 'loading' && (
                                 <tr>
-                                    <td colSpan={4} className='px-4 py-10 text-center text-muted-foreground'>
+                                    {/* <td colSpan={4} className='px-4 py-10 text-center text-muted-foreground'> */}
+                                    <td colSpan={3} className='px-4 py-10 text-center text-muted-foreground'>
                                         <Loader2 className='inline-block h-5 w-5 mr-2 animate-spin' />
                                         Connecting to Firebase…
                                     </td>
@@ -162,7 +163,8 @@ export const ReadingsTable = ({
 
                             {status === 'error' && (
                                 <tr>
-                                    <td colSpan={4} className='px-4 py-10 text-center text-red-500'>
+                                    {/* <td colSpan={4} className='px-4 py-10 text-center text-red-500'> */}
+                                    <td colSpan={3} className='px-4 py-10 text-center text-red-500'>
                                         <AlertCircle className='inline-block h-5 w-5 mr-2' />
                                         Failed to load readings
                                         {error?.message ? `: ${error.message}` : ''}
@@ -172,7 +174,8 @@ export const ReadingsTable = ({
 
                             {status === 'ready' && readings.length === 0 && (
                                 <tr>
-                                    <td colSpan={4} className='px-4 py-10 text-center text-muted-foreground'>
+                                    {/* <td colSpan={4} className='px-4 py-10 text-center text-muted-foreground'> */}
+                                    <td colSpan={3} className='px-4 py-10 text-center text-muted-foreground'>
                                         No readings yet. Waiting for the first data point…
                                     </td>
                                 </tr>
@@ -195,7 +198,7 @@ export const ReadingsTable = ({
                                             <td className='px-4 py-3 whitespace-nowrap'>
                                                 <SafetyBadge level={level} />
                                             </td>
-                                            <td className='px-4 py-3 whitespace-nowrap text-right'>
+                                            {/* <td className='px-4 py-3 whitespace-nowrap text-right'>
                                                 <button
                                                     type='button'
                                                     onClick={() => handleDeleteRow(reading)}
@@ -209,14 +212,15 @@ export const ReadingsTable = ({
                                                 >
                                                     <Trash2 className='h-4 w-4' />
                                                 </button>
-                                            </td>
+                                            </td> */}
                                         </tr>
                                     );
                                 })}
 
                             {status === 'ready' && readings.length > 0 && (
                                 <tr className='border-t border-border'>
-                                    <td colSpan={4} className='px-4 py-3 text-center'>
+                                    {/* <td colSpan={4} className='px-4 py-3 text-center'> */}
+                                    <td colSpan={3} className='px-4 py-3 text-center'>
                                         {hasMore ? (
                                             <button
                                                 type='button'
