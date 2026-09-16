@@ -6,7 +6,10 @@
 
 Built with React · Firebase · ECharts · Tailwind CSS
 
+🌐 **[Live Demo → ch2o-dashboard.web.app](https://ch2o-dashboard.web.app/)**
+
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen?logo=firebase&logoColor=white)](https://ch2o-dashboard.web.app/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-RTDB-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com)
 [![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vite.dev)
